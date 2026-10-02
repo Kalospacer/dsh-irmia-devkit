@@ -1,0 +1,72 @@
+import z from '@deepseek-ai/schemastery';
+/** 已解析的部署配置，工具调用不得自行改变状态目录。 */
+export interface Settings {
+    stateDir: string;
+    legacyBackupDir: string;
+    enabledGroups: string[];
+    maxEditBytes: number;
+    backupRetention: number;
+    maxBackupBytes: number;
+    syntaxTimeoutMs: number;
+    recoveryTimeoutMs: number;
+    processGraceMs: number;
+    httpTimeoutMs: number;
+    httpMaxBytes: number;
+    httpPageChars: number;
+    cacheTtlMs: number;
+    cacheEntries: number;
+    indexMaxFileBytes: number;
+    indexMaxFiles: number;
+    indexIgnoreDirs: string[];
+    indexTimeoutMs: number;
+    dbMaxRows: number;
+    dbTimeoutMs: number;
+    dbMaxBytes: number;
+}
+export declare const Config: z<Schemastery.ObjectS<NoInfer<{
+    stateDir: z<string, string, "defined">;
+    legacyBackupDir: z<string, string, "defined">;
+    enabledGroups: z<string[], string[], "defined">;
+    maxEditBytes: z<number, number, "defined">;
+    backupRetention: z<number, number, "defined">;
+    maxBackupBytes: z<number, number, "defined">;
+    syntaxTimeoutMs: z<number, number, "defined">;
+    recoveryTimeoutMs: z<number, number, "defined">;
+    processGraceMs: z<number, number, "defined">;
+    httpTimeoutMs: z<number, number, "defined">;
+    httpMaxBytes: z<number, number, "defined">;
+    httpPageChars: z<number, number, "defined">;
+    cacheTtlMs: z<number, number, "defined">;
+    cacheEntries: z<number, number, "defined">;
+    indexMaxFileBytes: z<number, number, "defined">;
+    indexMaxFiles: z<number, number, "defined">;
+    indexIgnoreDirs: z<string[], string[], "defined">;
+    indexTimeoutMs: z<number, number, "defined">;
+    dbMaxRows: z<number, number, "defined">;
+    dbTimeoutMs: z<number, number, "defined">;
+    dbMaxBytes: z<number, number, "defined">;
+}>>, Schemastery.ObjectT<NoInfer<{
+    stateDir: z<string, string, "defined">;
+    legacyBackupDir: z<string, string, "defined">;
+    enabledGroups: z<string[], string[], "defined">;
+    maxEditBytes: z<number, number, "defined">;
+    backupRetention: z<number, number, "defined">;
+    maxBackupBytes: z<number, number, "defined">;
+    syntaxTimeoutMs: z<number, number, "defined">;
+    recoveryTimeoutMs: z<number, number, "defined">;
+    processGraceMs: z<number, number, "defined">;
+    httpTimeoutMs: z<number, number, "defined">;
+    httpMaxBytes: z<number, number, "defined">;
+    httpPageChars: z<number, number, "defined">;
+    cacheTtlMs: z<number, number, "defined">;
+    cacheEntries: z<number, number, "defined">;
+    indexMaxFileBytes: z<number, number, "defined">;
+    indexMaxFiles: z<number, number, "defined">;
+    indexIgnoreDirs: z<string[], string[], "defined">;
+    indexTimeoutMs: z<number, number, "defined">;
+    dbMaxRows: z<number, number, "defined">;
+    dbTimeoutMs: z<number, number, "defined">;
+    dbMaxBytes: z<number, number, "defined">;
+}>>, "plain">;
+/** 独立 Config 约束尽早失败，不自动忽略旧 pythonPath 配置。 */
+export declare function resolveSettings(config: Settings): Settings;

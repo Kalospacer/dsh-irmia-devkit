@@ -1,0 +1,58 @@
+[
+  {
+    "name": "delete-empty-new",
+    "suffix": ".txt",
+    "before": "first\nsecond\n",
+    "args": {
+      "old": "second",
+      "new": ""
+    },
+    "ok": true,
+    "after": "first\n\n"
+  },
+  {
+    "name": "invalid-json-restores",
+    "suffix": ".json",
+    "before": "{\"value\": 1}",
+    "args": {
+      "old": "1",
+      "new": ""
+    },
+    "ok": false,
+    "after": "{\"value\": 1}"
+  },
+  {
+    "name": "insert-at-start",
+    "suffix": ".txt",
+    "before": "tail\n",
+    "args": {
+      "mode": "insert_at_line",
+      "line": 0,
+      "new": "head\n"
+    },
+    "ok": true,
+    "after": "head\ntail\n"
+  },
+  {
+    "name": "ambiguous-stays-unchanged",
+    "suffix": ".txt",
+    "before": "repeat repeat",
+    "args": {
+      "old": "repeat",
+      "new": "changed"
+    },
+    "ok": false,
+    "after": "repeat repeat"
+  },
+  {
+    "name": "crlf",
+    "suffix": ".txt",
+    "before": "first\r\nsecond\r\n",
+    "args": {
+      "old": "first\nsecond",
+      "new": "changed\nsecond"
+    },
+    "ok": true,
+    "after": "changed\r\nsecond\r\n"
+  }
+]

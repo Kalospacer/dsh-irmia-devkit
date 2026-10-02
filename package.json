@@ -1,42 +1,90 @@
 {
   "name": "dsh-irmia-devkit",
-  "version": "0.1.1",
-  "description": "Curated Irmia DevKit tools ported to the DeepSeek Harness: safe_edit / safe_rollback / multi_edit / http_get / http_post / code_index / code_explore / code_diff_impact / db_query.",
+  "version": "0.2.0",
+  "description": "DSH v0.2.0-rc.2 原生 Irmia 工具：安全编辑与恢复、多语言语法、HTTP、代码索引和只读 SQLite。",
   "type": "module",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "exports": {
-    ".": "./index.js",
-    "./package.json": "./package.json"
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
   },
   "files": [
-    "index.js",
-    "src",
-    "python",
-    "cordis.patch.yml"
+    "lib",
+    "assets",
+    "locale",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "UPGRADE.md",
+    "LICENSE",
+    "THIRD_PARTY_LICENSES.md"
   ],
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
     }
   },
+  "icon": "./icon.svg",
   "license": "AGPL-3.0",
-  "peerDependencies": {
-    "@deepseek-ai/dsh-tools": "^0.1.0",
-    "@deepseek-ai/schemastery": "^3.0.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kalospacer/dsh-irmia-devkit.git"
   },
   "engines": {
-    "node": ">=18"
+    "node": "^22.19.0 || >=24.0.0"
   },
-  "keywords": [
-    "deepseek-harness",
-    "cordis",
-    "plugin",
-    "irmia",
-    "devkit",
-    "safe-edit",
-    "codegraph"
-  ],
+  "packageManager": "pnpm@11.7.0",
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "4.0.4",
+    "@deepseek-ai/dsh-fs": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-sandbox": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-sandbox-policy": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-subprocess": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-system-prompt": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-tools": "0.2.0-rc.2",
+    "@deepseek-ai/schemastery": "3.18.4"
+  },
+  "dependencies": {
+    "@mozilla/readability": "0.6.0",
+    "chardet": "2.1.0",
+    "iconv-lite": "0.7.0",
+    "ipaddr.js": "2.2.0",
+    "linkedom": "0.18.12",
+    "smol-toml": "1.4.2",
+    "turndown": "7.2.1",
+    "web-tree-sitter": "0.20.8",
+    "yaml": "2.8.1"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.0.4",
+    "@deepseek-ai/cordis-plugin-loader": "1.0.5",
+    "@deepseek-ai/dsh-fs": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-fs-local": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-fs-observation-policy": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-fs-sandbox": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-llm": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-sandbox": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-sandbox-policy": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-session-projection": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-subprocess": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-system-prompt": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-tools": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-user-approval": "0.2.0-rc.2",
+    "@deepseek-ai/schemastery": "3.18.4",
+    "@types/node": "22.19.0",
+    "@types/turndown": "5.0.5",
+    "tree-sitter-wasms": "0.1.13",
+    "typescript": "5.9.3"
+  },
   "scripts": {
-    "test": "node test/smoke.mjs"
+    "assets": "node scripts/copy-grammars.mjs",
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test tests/*.test.mjs"
   }
 }

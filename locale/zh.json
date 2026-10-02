@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "弥亚开发工具箱",
+    "description": "适配 DSH rc2 的原生 TypeScript 安全编辑、语法、HTTP、代码索引和只读 SQLite 工具。"
+  }
+}
