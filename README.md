@@ -1,6 +1,6 @@
 # dsh-irmia-devkit
 
-原生 TypeScript 实现的 Irmia DevKit 精选工具包，适配 DeepSeek Harness `dsh-v0.2.0-rc.2`。生产环境不依赖 Python，也不启动 MCP/Python 桥接。
+原生 TypeScript 实现的 Irmia DevKit 精选工具包，适配 DeepSeek Harness `dsh-v0.2.1-rc.2` / `dsh-v0.2.1-rc.3`。生产环境不依赖 Python，也不启动 MCP/Python 桥接。
 
 ## 默认工具
 
@@ -8,7 +8,7 @@
 
 ## 安装与兼容
 
-包是 DSH bundle，peer 依赖固定为 DSH `0.2.0-rc.2`；Node 要求 `^22.19.0 || >=24.0.0`。通过 DSH 插件管理器安装，不手动编辑官方 preset：
+包是 DSH bundle，peer 依赖为 DSH `0.2.1-rc.2 || 0.2.1-rc.3`；Node 要求 `^22.19.0 || >=24.0.0`。通过 DSH 插件管理器安装，不手动编辑官方 preset：
 
 ```sh
 dsh plugin --profile <profile> add dsh-irmia-devkit
